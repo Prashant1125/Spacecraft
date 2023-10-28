@@ -1,5 +1,6 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:spacescape/widgets/overlays/controllers.dart';
 import 'package:spacescape/widgets/overlays/game_over_menu.dart';
 
 import '../game/game.dart';
@@ -40,6 +41,10 @@ class GamePlay extends StatelessWidget {
                 ),
             GameOverMenu.id: (BuildContext context, SpacescapeGame game) =>
                 GameOverMenu(
+                  game: game,
+                ),
+            Controller.id: (BuildContext context, SpacescapeGame game) =>
+                Controller(
                   game: game,
                 ),
           },

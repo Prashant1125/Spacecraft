@@ -5,6 +5,8 @@ import 'package:flame/sprite.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:spacescape/screens/game_play.dart';
+import 'package:spacescape/widgets/overlays/controllers.dart';
 
 import '../widgets/overlays/pause_menu.dart';
 import '../widgets/overlays/pause_button.dart';
@@ -183,6 +185,31 @@ class SpacescapeGame extends FlameGame
         priority: -1,
       );
 
+      final arrowBtn = ButtonComponent(
+        button: CircleComponent(
+          radius: 20,
+          paint: Paint()..color = Colors.white.withOpacity(0.5),
+        ),
+        anchor: Anchor.bottomLeft,
+        position: Vector2(0, fixedResolution.y - 30),
+        onPressed: () {
+          _player.keyboardDelta.x = -1;
+        },
+      );
+
+      // var controllers = CircleComponent(
+      //     radius: 20,
+      //     paint: Paint()..color = Colors.white.withOpacity(0.5),
+      //     anchor: Anchor.bottomRight,
+      //     position: Vector2(0, fixedResolution.y - 30),
+      //     // onPressed: _player.joystickAction,
+      //     children: [
+      //       arrowBtn,
+      //       arrowBtn,
+      //       arrowBtn,
+      //       arrowBtn,
+      //     ]);
+
       // Makes the game use a fixed resolution irrespective of the windows size.
       await world.addAll([
         _audioPlayerComponent,
@@ -190,6 +217,7 @@ class SpacescapeGame extends FlameGame
         _player,
         _enemyManager,
         _powerUpManager,
+        arrowBtn,
         button,
         _playerScore,
         _playerHealth,
@@ -281,6 +309,9 @@ class SpacescapeGame extends FlameGame
         pauseEngine();
         overlays.remove(PauseButton.id);
         overlays.add(GameOverMenu.id);
+        // overlays.remove(Controller.id);
+      } else {
+        // overlays.add(Controller.id);
       }
     }
   }

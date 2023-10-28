@@ -113,10 +113,15 @@ class Player extends SpriteComponent
   Vector2 keyboardDelta = Vector2.zero();
   static final _keysWatched = {
     LogicalKeyboardKey.keyW,
+    LogicalKeyboardKey.arrowUp,
     LogicalKeyboardKey.keyA,
+    LogicalKeyboardKey.arrowLeft,
     LogicalKeyboardKey.keyS,
+    LogicalKeyboardKey.arrowDown,
     LogicalKeyboardKey.keyD,
+    LogicalKeyboardKey.arrowRight,
     LogicalKeyboardKey.space,
+    LogicalKeyboardKey.enter,
   };
 
   @override
@@ -128,22 +133,27 @@ class Player extends SpriteComponent
     if (!_keysWatched.contains(event.logicalKey)) return true;
 
     if (event is RawKeyDownEvent &&
-        !event.repeat &&
-        event.logicalKey == LogicalKeyboardKey.space) {
+            !event.repeat &&
+            event.logicalKey == LogicalKeyboardKey.space ||
+        keysPressed.contains(LogicalKeyboardKey.enter)) {
       // pew pew!
       joystickAction();
     }
 
-    if (keysPressed.contains(LogicalKeyboardKey.keyW)) {
+    if (keysPressed.contains(LogicalKeyboardKey.keyW) ||
+        keysPressed.contains(LogicalKeyboardKey.arrowUp)) {
       keyboardDelta.y = -1;
     }
-    if (keysPressed.contains(LogicalKeyboardKey.keyA)) {
+    if (keysPressed.contains(LogicalKeyboardKey.keyA) ||
+        keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
       keyboardDelta.x = -1;
     }
-    if (keysPressed.contains(LogicalKeyboardKey.keyS)) {
+    if (keysPressed.contains(LogicalKeyboardKey.keyS) ||
+        keysPressed.contains(LogicalKeyboardKey.arrowDown)) {
       keyboardDelta.y = 1;
     }
-    if (keysPressed.contains(LogicalKeyboardKey.keyD)) {
+    if (keysPressed.contains(LogicalKeyboardKey.keyD) ||
+        keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
       keyboardDelta.x = 1;
     }
 
