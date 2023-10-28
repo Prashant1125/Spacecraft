@@ -5,8 +5,6 @@ import 'package:flame/sprite.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:spacescape/screens/game_play.dart';
-import 'package:spacescape/widgets/overlays/controllers.dart';
 
 import '../widgets/overlays/pause_menu.dart';
 import '../widgets/overlays/pause_button.dart';
@@ -140,6 +138,13 @@ class SpacescapeGame extends FlameGame
       // Create a fire button component on right
       final button = ButtonComponent(
         button: CircleComponent(
+          children: [
+            TextComponent(
+              text: 'FIRE',
+              anchor: Anchor.center,
+              position: Vector2(60, 60),
+            )
+          ],
           radius: 60,
           paint: Paint()..color = Colors.white.withOpacity(0.5),
         ),
@@ -185,17 +190,16 @@ class SpacescapeGame extends FlameGame
         priority: -1,
       );
 
-      final arrowBtn = ButtonComponent(
-        button: CircleComponent(
-          radius: 20,
-          paint: Paint()..color = Colors.white.withOpacity(0.5),
-        ),
-        anchor: Anchor.bottomLeft,
-        position: Vector2(0, fixedResolution.y - 30),
-        onPressed: () {
-          _player.keyboardDelta.x = -1;
-        },
-      );
+      arrowBtn(Vector2 position, {void Function()? onPressed}) =>
+          ButtonComponent(
+            button: CircleComponent(
+              radius: 40,
+              paint: Paint()..color = Colors.white.withOpacity(0.5),
+            ),
+            anchor: Anchor.bottomLeft,
+            position: position,
+            onPressed: onPressed,
+          );
 
       // var controllers = CircleComponent(
       //     radius: 20,
@@ -209,6 +213,7 @@ class SpacescapeGame extends FlameGame
       //       arrowBtn,
       //       arrowBtn,
       //     ]);
+      double position = 150;
 
       // Makes the game use a fixed resolution irrespective of the windows size.
       await world.addAll([
@@ -217,7 +222,31 @@ class SpacescapeGame extends FlameGame
         _player,
         _enemyManager,
         _powerUpManager,
-        arrowBtn,
+        arrowBtn(
+          Vector2(0, fixedResolution.y - position / 2),
+          onPressed: () {
+            _player.keyboardDelta.x = -1;
+          },
+        ),
+        arrowBtn(
+          Vector2(position, fixedResolution.y - position / 2),
+          onPressed: () {
+            _player.keyboardDelta.x = 1;
+          },
+        ),
+        arrowBtn(
+          Vector2(position / 2, fixedResolution.y - 0),
+          onPressed: () {
+            _player.keyboardDelta.y = 1;
+          },
+        ),
+        arrowBtn(
+          Vector2(position / 2, fixedResolution.y - position),
+          onPressed: () {
+            _player.keyboardDelta.y = -1;
+          },
+        ),
+        // DPadComponent(Vector2(0, 30), 200),
         button,
         _playerScore,
         _playerHealth,
@@ -368,5 +397,29 @@ class SpacescapeGame extends FlameGame
     world.children.whereType<PowerUp>().forEach((powerUp) {
       powerUp.removeFromParent();
     });
+  }
+}
+
+class DPadComponent extends Component {
+  final Vector2 dpadPosition;
+  final double dpadSize;
+
+  DPadComponent(this.dpadPosition, this.dpadSize);
+
+  @override
+  void render(Canvas canvas) {
+    // Draw the D-Pad
+    canvas.drawRect(
+        Rect.fromCenter(
+            center: Offset(dpadSize, dpadSize),
+            width: dpadSize,
+            height: dpadSize),
+        Paint()..color = Colors.amber);
+  }
+
+  @override
+  void update(double dt) {
+    // Update the D-Pad's position
+    // ...
   }
 }
