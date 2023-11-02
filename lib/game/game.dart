@@ -161,7 +161,7 @@ class SpacescapeGame extends FlameGame
           style: const TextStyle(
             color: Colors.white,
             fontSize: 12,
-            fontFamily: 'BungeeInline',
+            // fontFamily: fontFamily,
           ),
         ),
       );
@@ -174,7 +174,7 @@ class SpacescapeGame extends FlameGame
           style: const TextStyle(
             color: Colors.white,
             fontSize: 12,
-            fontFamily: 'BungeeInline',
+            // fontFamily: fontFamily,
           ),
         ),
       );
@@ -269,7 +269,7 @@ class SpacescapeGame extends FlameGame
       // Update the current spaceship type of player.
       _player.setSpaceshipType(playerData.spaceshipType);
     }
-    _audioPlayerComponent.playBgm('9. Space Invaders.wav');
+    _audioPlayerComponent.playBgm('alexander-nakarada-chase(chosic.com).mp3');
     super.onAttach();
   }
 
@@ -361,9 +361,9 @@ class SpacescapeGame extends FlameGame
           overlays.add(PauseMenu.id);
         }
         break;
-      case AppLifecycleState.hidden:
-        // TODO: Handle this case.
-        break;
+      // case AppLifecycleState.hidden:
+      //   // TODO: Handle this case.
+      //   break;
     }
 
     super.lifecycleStateChange(state);

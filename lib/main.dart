@@ -2,7 +2,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'models/settings.dart';
 import 'screens/main_menu.dart';
 import 'models/player_data.dart';
@@ -51,8 +50,11 @@ Future<void> main() async {
         // Use custom theme with 'BungeeInline' font.
         darkTheme: ThemeData(
           brightness: Brightness.dark,
-          fontFamily: 'BungeeInline',
+          // fontFamily: fontFamily,
+          fontFamily: 'Press_Start_2P',
           scaffoldBackgroundColor: Colors.black,
+          primaryColor: Colors.red,
+          primarySwatch: Colors.red,
         ),
         // MainMenu will be the first screen for now.
         // But this might change in future if we decide

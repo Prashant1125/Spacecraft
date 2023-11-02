@@ -38,7 +38,7 @@ class PauseMenu extends StatelessWidget {
 
           // Resume button.
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
+            width: MediaQuery.of(context).size.width / 2,
             child: ElevatedButton(
               onPressed: () {
                 game.resumeEngine();
@@ -51,7 +51,7 @@ class PauseMenu extends StatelessWidget {
 
           // Restart button.
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
+            width: MediaQuery.of(context).size.width / 2,
             child: ElevatedButton(
               onPressed: () {
                 game.overlays.remove(PauseMenu.id);
@@ -65,7 +65,7 @@ class PauseMenu extends StatelessWidget {
 
           // Exit button.
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
+            width: MediaQuery.of(context).size.width / 2,
             child: ElevatedButton(
               onPressed: () {
                 game.overlays.remove(PauseMenu.id);

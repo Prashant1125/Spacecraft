@@ -22,7 +22,7 @@ class HealthBar extends PositionComponent {
     // Draws a rectangular health bar at top right corner.
     canvas.drawRect(
       Rect.fromLTWH(-2, 5, player.health.toDouble(), 20),
-      Paint()..color = Colors.blue,
+      Paint()..color = Colors.green,
     );
     super.render(canvas);
   }

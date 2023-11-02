@@ -19,7 +19,7 @@ class SettingsMenu extends StatelessWidget {
               child: Text(
                 'Settings',
                 style: TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 40.0,
                   color: Colors.black,
                   shadows: [
                     Shadow(
@@ -64,7 +64,7 @@ class SettingsMenu extends StatelessWidget {
 
             // Back button.
             SizedBox(
-              width: MediaQuery.of(context).size.width / 4,
+              width: MediaQuery.of(context).size.width / 3,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop();

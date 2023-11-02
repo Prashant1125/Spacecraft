@@ -22,6 +22,7 @@ class GameOverMenu extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 50.0),
             child: Text(
               'Game Over',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 50.0,
                 color: Colors.black,
@@ -38,7 +39,7 @@ class GameOverMenu extends StatelessWidget {
 
           // Restart button.
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
+            width: MediaQuery.of(context).size.width / 2,
             child: ElevatedButton(
               onPressed: () {
                 game.overlays.remove(GameOverMenu.id);
@@ -52,7 +53,7 @@ class GameOverMenu extends StatelessWidget {
 
           // Exit button.
           SizedBox(
-            width: MediaQuery.of(context).size.width / 3,
+            width: MediaQuery.of(context).size.width / 2,
             child: ElevatedButton(
               onPressed: () {
                 game.overlays.remove(GameOverMenu.id);

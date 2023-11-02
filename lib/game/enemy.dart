@@ -43,7 +43,7 @@ class Enemy extends SpriteComponent
       style: const TextStyle(
         color: Colors.white,
         fontSize: 12,
-        fontFamily: 'BungeeInline',
+        // fontFamily: fontFamily,
       ),
     ),
   );
