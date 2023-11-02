@@ -80,8 +80,8 @@ class SpacescapeGame extends FlameGame
 
       spriteSheet = SpriteSheet.fromColumnsAndRows(
         image: images.fromCache('simpleSpace_tilesheet@2.png'),
-        columns: 8,
-        rows: 6,
+        columns: 5,
+        rows: 5,
       );
 
       await add(world);
