@@ -362,8 +362,9 @@ class SpacescapeGame extends FlameGame
         }
         break;
       // case AppLifecycleState.hidden:
-      //   // TODO: Handle this case.
       //   break;
+      case AppLifecycleState.hidden:
+        break;
     }
 
     super.lifecycleStateChange(state);
