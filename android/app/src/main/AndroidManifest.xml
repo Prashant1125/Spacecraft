@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.spacescape">
+    package="com.pk.spacescape">
    <application
-        android:label="spacescape"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Infinity War"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
