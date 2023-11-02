@@ -19,15 +19,15 @@ class MainMenu extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 50.0),
               child: Text(
-                'Spacescape',
+                'INFINITY WAR',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 30.0,
-                  color: Colors.black,
+                  fontSize: 28.0,
+                  color: Colors.green,
                   shadows: [
                     Shadow(
                       blurRadius: 20.0,
-                      color: Colors.white,
+                      color: Colors.red,
                       offset: Offset(0, 0),
                     )
                   ],

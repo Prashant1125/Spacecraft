@@ -27,11 +27,11 @@ class SelectSpaceship extends StatelessWidget {
                 'Select',
                 style: TextStyle(
                   fontSize: 50.0,
-                  color: Colors.black,
+                  color: Colors.green,
                   shadows: [
                     Shadow(
                       blurRadius: 20.0,
-                      color: Colors.white,
+                      color: Colors.red,
                       offset: Offset(0, 0),
                     )
                   ],
@@ -44,11 +44,14 @@ class SelectSpaceship extends StatelessWidget {
               builder: (context, playerData, child) {
                 final spaceship =
                     Spaceship.getSpaceshipByType(playerData.spaceshipType);
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Ship: ${spaceship.name}'),
-                    Text('Money: ${playerData.money}'),
+                    Text('Super Hero: ${spaceship.name}'),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text('Ammount: ${playerData.money}'),
                   ],
                 );
               },
